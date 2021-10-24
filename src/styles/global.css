@@ -7,4 +7,10 @@
   .link {
     @apply cursor-pointer hover:underline;
   }
+
+  .button {
+    @apply text-xs md:text-sm m-auto bg-gradient-to-b border 
+    border-yellow-200 focus:outline-none focus:ring-2 rounded-md 
+    focus:ring-yellow-200 from-yellow-200 active:from-yellow-500 p-2 mt-2 to-yellow-400 w-full;
+  }
 }
