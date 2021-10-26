@@ -42,7 +42,6 @@ const Checkout = () => {
       });
     }
   });
-  console.log(`groupedItems`, groupedItems);
 
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;
