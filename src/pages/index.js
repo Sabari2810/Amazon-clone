@@ -7,7 +7,7 @@ export default function Home({ products }) {
   return (
     <div className="min-h-screen bg-gray-200">
       <Head>
-        <title>Create Next App</title>
+        <title>Amazon - Clone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

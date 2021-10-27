@@ -3,11 +3,14 @@ import Header from "../../components/Header";
 import Image from "next/image";
 import { getProviders } from "next-auth/react";
 import { signIn as LogIn } from "next-auth/react";
+import Head from "next/head";
 
 const SignIn = ({ providers }) => {
   return (
     <div>
-      {/* <Header /> */}
+      <Head>
+        <title>Amazon - SignIn</title>
+      </Head>
       <main className="max-w-screen-lg mx-auto">
         <div className="flex flex-col items-center">
           <Image

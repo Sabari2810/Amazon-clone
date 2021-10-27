@@ -4,11 +4,16 @@ import { getSession, useSession } from "next-auth/react";
 import { db } from "../../firebase";
 import Header from "../components/Header";
 import Order from "../components/Order";
+import Head from "next/head";
 const orders = ({ orders }) => {
   console.log(`orders`, orders);
   const { data: session } = useSession();
   return (
     <div className="bg-gray-50 h-screen ">
+      <Head>
+        <title>Amazon - Your Orders</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
       <main className="max-w-screen-lg mx-auto p-10">
         <h1 className="text-3xl border-b border-yellow-500 mb-2 pb-1">
@@ -61,6 +66,7 @@ export async function getServerSideProps(context) {
     orderBy("timestamp", "desc")
   );
   const data = await getDocs(q);
+  console.log(`data.docs`, data.docs);
   const stripeOrders = data.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),

@@ -1,13 +1,14 @@
-import React from "react";
-import Header from "../components/Header";
-import Image from "next/image";
-import { useSelector } from "react-redux";
-import { selectItems, selectTotal } from "../slices/BasketSlice";
-import CheckoutProduct from "../components/CheckoutProduct";
-import { useSession } from "next-auth/react";
-import Currency from "react-currency-formatter";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import { useSession } from "next-auth/react";
+import Head from "next/head";
+import Image from "next/image";
+import React from "react";
+import Currency from "react-currency-formatter";
+import { useSelector } from "react-redux";
+import CheckoutProduct from "../components/CheckoutProduct";
+import Header from "../components/Header";
+import { selectItems, selectTotal } from "../slices/BasketSlice";
 const stripePromise = loadStripe(process.env.stripe_key);
 
 const Checkout = () => {
@@ -60,6 +61,9 @@ const Checkout = () => {
   };
   return (
     <div className="bg-gray-100 h-full">
+      <Head>
+        <title>Amazon - checkout</title>
+      </Head>
       <Header />
       <div className="lg:flex max-w-screen-2xl mx-auto">
         {/* left */}
