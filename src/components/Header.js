@@ -8,16 +8,30 @@ import {
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectItems } from "../slices/BasketSlice";
+import { selectDrawerState, setIsDrawerOpen } from "../slices/DrawerSlice";
+import { XIcon } from "@heroicons/react/solid";
 
 const Header = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const items = useSelector(selectItems);
+  const dispatch = useDispatch();
+  const isOpen = useSelector(selectDrawerState);
 
   return (
     <header className="sticky top-0 z-50">
+      {isOpen && (
+        <div className="absolute z-[999] top-0 left-80">
+          <XIcon
+            onClick={() => {
+              setIsDrawerOpen(false);
+            }}
+            className="h-10 text-white cursor-pointer"
+          />
+        </div>
+      )}
       {/* top nav */}
       <div className="bg-amazon_blue-default flex-grow flex items-center p-1 py-2 px-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
@@ -62,9 +76,17 @@ const Header = () => {
       </div>
       {/* bottom nav */}
       <div className="bg-amazon_blue-light flex items-center p-2 pl-6 text-sm justify-start space-x-4 text-white">
-        <p className="flex items-center link">
+        <p
+          onClick={() => {
+            dispatch(setIsDrawerOpen(true));
+          }}
+          className="relative flex items-center group link"
+        >
           <MenuIcon className="h-6 mr-1" />
           All
+          <div className="absolute bg-gray-200 transition-all duration-200 text-black scale-0 group-hover:scale-100 top-8 left-4">
+            Hello
+          </div>
         </p>
         <p className="link">Prime Video</p>
         <p className="link">Amazon Business</p>

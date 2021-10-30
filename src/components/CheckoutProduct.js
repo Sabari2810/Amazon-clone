@@ -3,6 +3,8 @@ import Image from "next/image";
 import Currency from "react-currency-formatter";
 import { useDispatch } from "react-redux";
 import { addToBasket, removeFromBasket } from "../slices/BasketSlice";
+import { PlusIcon } from "@heroicons/react/outline";
+import { MinusIcon } from "@heroicons/react/outline";
 
 const CheckoutProduct = ({
   id,
@@ -45,7 +47,7 @@ const CheckoutProduct = ({
             ))}
         </div>
         <p className="line-clamp-2 text-xs my-2">{description}</p>
-        <Currency quantity={price * 103} currency="INR" />
+        <Currency quantity={price * 60} currency="INR" />
 
         {hasPrime && (
           <div className="flex items-center space-x-2">
@@ -59,19 +61,19 @@ const CheckoutProduct = ({
         )}
       </div>
 
-      <div className="flex flex-col my-auto space-y-3 justify-self-end">
+      <div className="flex flex-col items-center my-auto space-y-2 justify-self-end">
         <div className="flex">
           <button onClick={removeProductFromBasket} className="mt-auto button">
-            -
+            <MinusIcon className="h-5" />
           </button>
           <p className="my-2 mx-2">{count}</p>
           <button onClick={addProductToBasket} className="mt-auto button">
-            +
+            <PlusIcon className="h-5" />
           </button>
         </div>
-        <button onClick={removeProductFromBasket} className="mt-auto button">
-          Remove to Basket
-        </button>
+        <div>
+          <Currency quantity={price * count * 60} currency="INR" />
+        </div>
       </div>
     </div>
   );

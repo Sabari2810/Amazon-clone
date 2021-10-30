@@ -32,7 +32,7 @@ const Product = ({ id, title, category, description, price, image }) => {
   return (
     <div className="bg-white z-30 hover:scale-105 duration-200 relative rounded-md flex flex-col m-5 p-10">
       <p className="absolute top-2 right-2 text-xs italic">{category}</p>
-      <div className="border border-blue-300 rounded-lg flex p-2 justify-center">
+      <div className="border rounded-lg flex p-2 justify-center">
         <Image
           className="hover:scale-150 duration-200"
           src={image}
@@ -55,7 +55,7 @@ const Product = ({ id, title, category, description, price, image }) => {
       <p className="text-xs my-2 line-clamp-2">{description}</p>
 
       <div className="mb-5">
-        <Currency quantity={price} currency="USD" />
+        <Currency quantity={price * 60} currency="INR" />
       </div>
 
       {hasPrime && (

@@ -33,16 +33,27 @@ const Checkout = () => {
 
   var flag = [];
   var groupedItems = [];
-  items.forEach((item) => {
-    if (!flag.includes(item.id)) {
-      flag.push(item.id);
+  // items.forEach((item) => {
+  //   if (!flag.includes(item.id)) {
+  //     flag.push(item.id);
+  //     groupedItems.push({
+  //       ...item,
+  //       quantity: countGroup[item.id],
+  //       amount: priceGroup[item.id],
+  //     });
+  //   }
+  // });
+
+  for (var i = 0; i < items.length; i++) {
+    if (!flag.includes(items[i].id)) {
+      flag.push(items[i].id);
       groupedItems.push({
-        ...item,
-        quantity: countGroup[item.id],
-        amount: priceGroup[item.id],
+        ...items[i],
+        quantity: countGroup[items[i].id],
+        amount: priceGroup[items[i].id],
       });
     }
-  });
+  }
 
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;
@@ -65,7 +76,7 @@ const Checkout = () => {
         <title>Amazon - checkout</title>
       </Head>
       <Header />
-      <div className="lg:flex max-w-screen-2xl mx-auto">
+      <div className="lg:flex max-w-screen-2xl h-auto mx-auto relative">
         {/* left */}
         <div className="flex-grow m-5 shadow-sm">
           <Image
@@ -95,36 +106,38 @@ const Checkout = () => {
                   rating={item.rating}
                   hasPrime={item.hasPrime}
                   price={item.price}
-                  key={i}
+                  key={item.id}
                 />
               );
               // }
             })}
           </div>
         </div>
-        <div className="flex flex-col sticky right-0 bg-white p-10">
-          {items.length > 0 && (
-            <>
-              <h2 className="whitespace-nowrap">
-                Subtotal ({items.length} items) :{" "}
-                <span className="font-bold">
-                  <Currency quantity={total * 103} currency="INR" />
-                </span>
-              </h2>
-              <button
-                role="link"
-                onClick={createCheckoutSession}
-                disabled={!session}
-                className={`button mt-2 ${
-                  !session &&
-                  " from-gray-200 border-gray-200  focus:ring-gray-200 cursor-not-allowed to-gray-400"
-                }`}
-              >
-                {!session ? "Sign in to Checkout" : "Proceed to Checkout"}
-              </button>
-            </>
-          )}
-        </div>
+        {items.length > 0 && (
+          <div className="flex sticky flex-col top-20 h-full right-0 bg-white p-10">
+            {items.length > 0 && (
+              <>
+                <h2 className="whitespace-nowrap">
+                  Subtotal ({items.length} items) :{" "}
+                  <span className="font-bold">
+                    <Currency quantity={total * 60} currency="INR" />
+                  </span>
+                </h2>
+                <button
+                  role="link"
+                  onClick={createCheckoutSession}
+                  disabled={!session}
+                  className={`button mt-2 ${
+                    !session &&
+                    " from-gray-200 border-gray-200  focus:ring-gray-200 cursor-not-allowed to-gray-400"
+                  }`}
+                >
+                  {!session ? "Sign in to Checkout" : "Proceed to Checkout"}
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

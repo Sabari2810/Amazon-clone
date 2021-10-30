@@ -1,5 +1,7 @@
 import Head from "next/head";
+import { useState } from "react";
 import Banner from "../components/Banner";
+import CustomDrawer from "../components/CustomDrawer";
 import Header from "../components/Header";
 import ProductFeed from "../components/ProductFeed";
 
@@ -12,6 +14,8 @@ export default function Home({ products }) {
       </Head>
 
       <Header />
+
+      <CustomDrawer />
 
       <main className="max-w-screen-2xl mx-auto">
         <Banner />
