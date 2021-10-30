@@ -84,9 +84,6 @@ const Header = () => {
         >
           <MenuIcon className="h-6 mr-1" />
           All
-          <div className="absolute bg-gray-200 transition-all duration-200 text-black scale-0 group-hover:scale-100 top-8 left-4">
-            Hello
-          </div>
         </p>
         <p className="link">Prime Video</p>
         <p className="link">Amazon Business</p>
