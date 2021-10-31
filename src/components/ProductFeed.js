@@ -2,7 +2,6 @@ import React from "react";
 import Product from "./Product";
 
 const ProductFeed = ({ products }) => {
-  console.log(`products`, products);
   return (
     <div className="grid grid-flow-row-dense z-50 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:-mt-52">
       {products
