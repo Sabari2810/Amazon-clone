@@ -22,16 +22,6 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50">
-      {isOpen && (
-        <div className="absolute z-[999] top-0 left-80">
-          <XIcon
-            onClick={() => {
-              setIsDrawerOpen(false);
-            }}
-            className="h-10 text-white cursor-pointer"
-          />
-        </div>
-      )}
       {/* top nav */}
       <div className="bg-amazon_blue-default flex-grow flex items-center p-1 py-2 px-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
