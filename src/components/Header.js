@@ -85,7 +85,22 @@ const Header = () => {
           <MenuIcon className="h-6 mr-1" />
           All
         </p>
-        <p className="link">Prime Video</p>
+        <div className="relative group">
+          <p className="link">Prime Video</p>
+          <div className="absolute top-8 scale-0 group-focus:scale-100">
+            <div className="">
+              <div className="w-16 absolute top-0 left-10 overflow-hidden inline-block">
+                <div className="w-3 h-3 bg-white origin-bottom-left transform rotate-45"></div>
+              </div>
+              <div className="w-40 p-2 bg-white text-black">
+                <p>body</p>
+                <p>body</p>
+                <p>body</p>
+                <p>body</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <p className="link">Amazon Business</p>
         <p className="link">Today's Deals</p>
         <p className="link hidden lg:inline-block">Electronics</p>

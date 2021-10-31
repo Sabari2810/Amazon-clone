@@ -50,12 +50,14 @@ const CustomDrawer = () => {
                   {session ? session.user.name : "Sign In"}
                 </span>
               </p>
-              <XIcon
-                onClick={() => {
-                  dispatch(setIsDrawerOpen(false));
-                }}
-                className="h-6 text-white cursor-pointer"
-              />
+              <div className=" p-1">
+                <XIcon
+                  onClick={() => {
+                    dispatch(setIsDrawerOpen(false));
+                  }}
+                  className="h-8 p-1 text-white hover:bg-gray-50 hover:rounded-full hover:text-amazon_blue-default cursor-pointer "
+                />
+              </div>
             </div>
             <div className="">
               <div className="flex pt-6 flex-col">

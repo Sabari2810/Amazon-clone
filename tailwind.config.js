@@ -6,6 +6,7 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    languages: ["fr", "en"],
     extend: {
       colors: {
         amazon_blue: {
@@ -18,5 +19,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("tailwindcss-localized"),
+  ],
 };

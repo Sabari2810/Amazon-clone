@@ -52,7 +52,7 @@ const Product = ({ id, title, category, description, price, image }) => {
           ))}
       </div>
 
-      <p className="text-xs my-2 line-clamp-2">{description}</p>
+      <p className=".fr\:text-xs my-2 line-clamp-2">{description}</p>
 
       <div className="mb-5">
         <Currency quantity={price * 60} currency="INR" />
