@@ -35,7 +35,7 @@ const CheckoutProduct = ({
     dispatch(removeFromBasket({ id }));
   };
   return (
-    <div className="grid grid-cols-5">
+    <div className="sm:grid flex flex-col sm:flex-row items-center grid-cols-5">
       <Image src={image} width={200} height={200} objectFit="contain" />
       <div className="col-span-3 mx-4">
         <p>{title}</p>
@@ -61,7 +61,7 @@ const CheckoutProduct = ({
         )}
       </div>
 
-      <div className="flex flex-col items-center my-auto space-y-2 justify-self-end">
+      <div className="flex mt-2 flex-col items-center sm:my-auto space-y-2 justify-self-end">
         <div className="flex">
           <button onClick={removeProductFromBasket} className="mt-auto button">
             <MinusIcon className="h-5" />
