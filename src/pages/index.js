@@ -22,7 +22,7 @@ export default function Home({ products }) {
     });
   }, []);
   return (
-    <div className="bg-gray-200 h-full">
+    <div className="bg-gray-200">
       <Head>
         <title>Amazon - Clone</title>
         <link rel="icon" href="/favicon.ico" />
