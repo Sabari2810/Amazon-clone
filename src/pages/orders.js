@@ -1,11 +1,10 @@
 import { collection, getDocs, orderBy, query } from "@firebase/firestore";
 import moment from "moment";
 import { getSession, useSession } from "next-auth/react";
+import Head from "next/head";
 import { db } from "../../firebase";
 import Header from "../components/Header";
 import Order from "../components/Order";
-import Head from "next/head";
-import CustomDrawer from "../components/CustomDrawer";
 const orders = ({ orders }) => {
   console.log(`orders`, orders);
   const { data: session } = useSession();
@@ -16,7 +15,6 @@ const orders = ({ orders }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <CustomDrawer />
       <main className="max-w-screen-lg mx-auto p-10">
         <h1 className="text-3xl border-b border-yellow-500 mb-2 pb-1">
           Your Orders

@@ -77,7 +77,7 @@ const Checkout = () => {
         <title>Amazon - checkout</title>
       </Head>
       <Header />
-      <CustomDrawer />
+
       <div className="lg:flex max-w-screen-2xl h-auto mx-auto relative">
         {/* left */}
         <div className="flex-grow m-5 shadow-sm">
