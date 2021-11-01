@@ -21,7 +21,7 @@ const Order = ({ id, amount, amountShipping, images, items, timestamp }) => {
           {items.length} items
         </p>
 
-        <p className="absolute top-2 w-40 lg:w-72 truncate right-2 whitespace-nowrap">
+        <p className="absolute hidden sm:inline-block top-2 w-40 lg:w-72 truncate right-2 whitespace-nowrap">
           ORDER # {id}
         </p>
       </div>
