@@ -16,6 +16,8 @@ export default function Home({ products }) {
       scroll = window.scrollY;
       if (scroll > window.document.body.scrollTop) {
         setisScrollingDown(true);
+      } else {
+        setisScrollingDown(false);
       }
       if (scroll > window.document.body.clientHeight - 800) {
         setisScrollingDown(false);
