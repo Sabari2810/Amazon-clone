@@ -2,6 +2,7 @@ const Footer = () => {
   const backToTop = () => {
     scrollTo({
       top: 0,
+      behavior: "smooth",
     });
   };
   return (

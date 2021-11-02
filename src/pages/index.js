@@ -44,6 +44,7 @@ export default function Home({ products }) {
           onClick={() => {
             scrollTo({
               top: 0,
+              behavior: "smooth",
             });
           }}
           className="cursor-pointer fixed transition-all bg-gray-300 transform duration-200 right-2 bottom-2 z-50 rounded-full"
