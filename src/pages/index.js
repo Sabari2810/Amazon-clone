@@ -14,9 +14,10 @@ export default function Home({ products }) {
     window.addEventListener("scroll", (e) => {
       scrollPrev = scroll;
       scroll = window.scrollY;
-      if (scrollPrev < scroll) {
+      if (scroll > window.document.body.scrollTop) {
         setisScrollingDown(true);
-      } else {
+      }
+      if (scroll > window.document.body.clientHeight - 800) {
         setisScrollingDown(false);
       }
     });
